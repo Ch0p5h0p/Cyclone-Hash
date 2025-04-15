@@ -7,9 +7,6 @@ def generateSalt(length=16):
 def msg2ord(msg):
 	return list(map(ord,[*msg]))
 
-def rotListRight(data):
-	data.insert(0,data.pop())
-
 def rotListLeft(data):
 	data.append(data.pop(0))
 

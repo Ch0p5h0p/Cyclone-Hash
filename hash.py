@@ -1,11 +1,14 @@
+#!/bin/python3
 import random
 import string
+import sys
 
 def generateSalt(length=16):
 	return ''.join(random.choices(string.ascii_letters+string.digits, k=length))
 
 def msg2ord(msg):
 	return list(map(ord,[*msg]))
+
 
 def rotListLeft(data):
 	data.append(data.pop(0))
@@ -41,8 +44,6 @@ def mix(state, chunk, salt):
 		&  : Bitwise AND
 		|  : Bitwise OR
 		
-		Bitwise operators, like arithmetic operators, have their regular arithmetic form and compound assignment forms.
-		For example, with a=0001; a<<0010, a remains unchanged, but if we do a<<=0010, a is now 0100.
 		'''
 		new_state[i]=s^rotation
 	return new_state
@@ -80,6 +81,8 @@ def cleanupHash(hash:list):
 
 def hash(message, chunkLength=16, salt=None):
 	message=msg2ord(message)
+	if salt!=None and len(salt)!=chunkLength:
+		raise Exception(f"Salt length must be {chunkLength} bytes long (Salt {salt} is only {len(salt)})")
 	if salt==None:
 		salt=generateSalt(chunkLength)
 
@@ -92,9 +95,17 @@ def str2hex(string):
 	return bytes([ord(i) for i in string]).hex()
 
 if __name__ == "__main__":
-	hash1=hash("Hello, World! How are you on this wonderful (insert day of the week here)?")
-	hash2=hash("Hello, WOrld! How are you on this wonderful (insert day of the week here)?", salt=hash1[1])
-	hash1hex=bytes([ord(i) for i in hash1[0]]).hex()
-	hash2hex=bytes([ord(i) for i in hash2[0]]).hex()
-	print(f"Hash: {str2hex(hash1[0])}\tSalt:{str2hex(hash1[1])}")
-	print(f"Hash: {str2hex(hash2[0])}\tSalt:{str2hex(hash2[1])}")
+	try:
+		msg=sys.argv[1]
+	except:
+		print("Usage: ./hash.py <message> <salt>\n")
+		print("Takes in a string message parameter and an optional string salt parameter and produces a hash output. If a salt isn't provided, one is generated.\n")
+		print("Examples:\n\t./hash.py \"Hello World!\"\n\t./hash.py \"Foo\" \"3GZO9NUL67pABvIZ\"")
+		exit()
+	try:
+		salt=sys.argv[2]
+	except:
+		salt=None
+	
+	out=hash(msg, salt=salt)
+	print(f"Hash: {str2hex(out[0])}\nSalt: {out[1]}")

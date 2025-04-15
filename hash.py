@@ -41,6 +41,8 @@ def mix(state, chunk, salt):
 		&  : Bitwise AND
 		|  : Bitwise OR
 		
+		Bitwise operators, like arithmetic operators, have their regular arithmetic form and compound assignment forms.
+		For example, with a=0001; a<<0010, a remains unchanged, but if we do a<<=0010, a is now 0100.
 		'''
 		new_state[i]=s^rotation
 	return new_state

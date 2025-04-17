@@ -11,6 +11,7 @@ For reference: the best scores for each test are the following:
 - Byte Diffusion: graphs of the amount of changes per byte should be flat or almost flat.
 - Birthday paradox collisions: 0 collisions.
 
+Note: tests were performed with a constant tweak value, which indicates that the use of a tweak value increases the strength of the hash beyond the test results above.
 
 ## Background
 Originally, I did this to give myself an introduction to hash algorithms and how they work internally, but through multiple hours of wondering what I could do better and the occasional eureka moment, my "introductory exercise" became Cyclone.

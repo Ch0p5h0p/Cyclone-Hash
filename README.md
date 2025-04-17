@@ -1,5 +1,5 @@
 # Cyclone Hash Algorithm
-A modular, non-linear, state-interdependent hash algorithm with tweak-based diffusion.
+A modular, state-interdependent hash algorithm with tweak-based diffusion.
 
 ## Security Test Stats:
 - Hamming distance between small changes ("Hello, World!" vs "Hfllo, World!" vs "Hello, Wprld!") averages ~49%

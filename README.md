@@ -16,5 +16,6 @@ Note: tests were performed with a constant tweak value, which indicates that the
 ## Background
 Originally, I did this to give myself an introduction to hash algorithms and how they work internally, but through multiple hours of wondering what I could do better and the occasional eureka moment, my "introductory exercise" became Cyclone.
 
+---
 
 *Developed independently by Samuel Joseph Poyner (Blooper7) and licensed under the MIT license*

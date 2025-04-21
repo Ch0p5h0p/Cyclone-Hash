@@ -3,7 +3,7 @@
 
 import random
 import string
-from cycone import hash, str2hex
+from cyclone import hash, str2hex
 
 used_inputs=[]
 seen_hashes=[]

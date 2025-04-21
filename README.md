@@ -6,7 +6,7 @@ A modular, state-interdependent hash algorithm with tweak-based diffusion.
 
 - Hamming distance between small changes ("Hello, World!" vs "Hfllo, World!" vs "Hello, Wprld!") averages ~49%
 - In a trial running "msg0000" to "msg9999", the changes in the hash bytes were almost fully evenly distributed. The amount of changes (per byte) were [9962, 9964, 9956, 9957, 9953, 9965, 9958, 9971, 9965, 9963, 9949, 9961, 9964, 9952, 9965, 9960]
-- With multiple birthday-paradox-influenced collision detection tests with randomly generated input strings, no collisions were found.
+- With multiple birthday-paradox-influenced collision detection tests with randomly generated input strings, an average of 3% collision rate was found. Currently updating to fix this.
 
 For reference: the best scores for each test are the following:
 - Hamming distance: 50%.

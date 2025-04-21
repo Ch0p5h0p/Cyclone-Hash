@@ -1,6 +1,8 @@
 # Cyclone Hash Algorithm
 A modular, state-interdependent hash algorithm with tweak-based diffusion.
 
+# BROKEN VERSION. TOO MANY COLLISIONS. FIXING.
+
 ## Security Test Stats:
 *A note on the birthday collision paradox test: The optimal amount of test hashes is 2<sup>24</sup>, but I'm using a laptop with 4GB RAM, so that many tests aren't possible in a reasonable amount of time. To solve this, I reduced the number of tests and simply ran multiple tests whenever I could, since tests are generated randomly. There may have been some overlap, but I think I've come reasonably close to collisionless, as 20 tests have yet to return any collisions*
 

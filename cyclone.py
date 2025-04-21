@@ -51,6 +51,8 @@ def mix(state, chunk, tweak):
 def chunk(byteList, chunkByteSize=16):
 	# pad message
 	data=byteList
+	if len(data)%16!=0:
+		data.append(128)
 	while len(data)%16!=0:
 		data.append(0)
 	# chunk message

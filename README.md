@@ -2,7 +2,8 @@
 A modular, state-interdependent hash algorithm with tweak-based diffusion.
 
 ## Security Test Stats:
-*A note on the birthday collision paradox test: The optimal amount of test hashes is 2<sup>24</sup>, but I'm using a laptop with 4GB RAM, so that many tests aren't possible in a reasonable amount of time.*
+*A note on the birthday collision paradox test: The optimal amount of test hashes is 2<sup>24</sup>, but I'm using a laptop with 4GB RAM, so that many tests aren't possible in a reasonable amount of time. To solve this, I reduced the number of tests and simply ran multiple tests whenever I could, since tests are generated randomly. There may have been some overlap, but I think I've come reasonably close to collisionless, as 20 tests have yet to return any collisions*
+
 - Hamming distance between small changes ("Hello, World!" vs "Hfllo, World!" vs "Hello, Wprld!") averages ~49%
 - In a trial running "msg0000" to "msg9999", the changes in the hash bytes were almost fully evenly distributed. The amount of changes (per byte) were [9962, 9964, 9956, 9957, 9953, 9965, 9958, 9971, 9965, 9963, 9949, 9961, 9964, 9952, 9965, 9960]
 - With multiple birthday-paradox-influenced collision detection tests with randomly generated input strings, no collisions were found.

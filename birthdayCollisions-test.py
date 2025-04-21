@@ -3,8 +3,8 @@
 
 import random
 import string
-from hash import hash, str2hex
-import timeit
+from cycone import hash, str2hex
+
 used_inputs=[]
 seen_hashes=[]
 tweak="3re6Gbl3QQR4obuf"

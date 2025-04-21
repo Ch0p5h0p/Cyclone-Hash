@@ -1,5 +1,5 @@
 #!/bin/python3
-from hash import hash, str2hex
+from cyclone import hash, str2hex
 
 hashes=[]
 tweak="3re6Gbl3QQR4obuf"

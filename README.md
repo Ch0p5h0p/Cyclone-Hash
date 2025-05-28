@@ -6,7 +6,7 @@ A modular, state-interdependent hash algorithm with tweak-based diffusion.
 - In a trial running "msg0000" to "msg9999", the changes in the hash bytes were almost fully evenly distributed. The amount of changes (per byte) were [9962, 9964, 9956, 9957, 9953, 9965, 9958, 9971, 9965, 9963, 9949, 9961, 9964, 9952, 9965, 9960]
 - With multiple birthday-paradox-influenced collision detection tests with randomly generated input strings, no collisions have been found
 
-For reference: the best scores for each test are the following:
+For reference: the optimal scores for each test are the following:
 - Hamming distance: 50%.
 - Byte Diffusion: graphs of the amount of changes per byte should be flat or almost flat.
 - Birthday paradox collisions: 0 collisions.

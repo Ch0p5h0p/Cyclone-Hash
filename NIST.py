@@ -1,6 +1,11 @@
 import math
 from scipy.stats import chi2
-
+'''
+THIS IS NOT A COMPLETE NIST TEST SUITE
+Contents:
+    - Approximate entropy test
+    - Serial test
+'''
 
 def approximate_entropy_test(bits: str, m: int):
     """

@@ -1,6 +1,18 @@
 # Cyclone Hash Algorithm
 A modular, state-interdependent hash algorithm with tweak-based diffusion.
 
+## Usage:
+The python script can be run through the terminal with `python3 cyclone.py "message" "tweak"`. 
+If no tweak is provided, one will be generated.
+
+You can also import the script and use the provided `hash()` function. The function uses the following parameters:
+```
+message     : Mandatory, the message you want to hash
+chunkLength : The length of chunk to use in bytes. Essentially, this is the length of the output hash in bytes. Default is 32 bytes.
+tweak       : The tweak to use with the mixer. If you don't provide one, one will be generated for you.
+```
+If you just want to quickly hash a message, you can run `hash("Hello, World")`, and a 32 byte (256 bit) hash generated with a random tweak will be returned.
+
 ## Security Test Stats:
 - Hamming distance between small changes ("Hello, World!" vs "Hfllo, World!" vs "Hello, Wprld!") averages ~49%
 - In a trial running "msg0000" to "msg9999", the changes in the hash bytes were almost fully evenly distributed. The amount of changes (per byte) were [9962, 9964, 9956, 9957, 9953, 9965, 9958, 9971, 9965, 9963, 9949, 9961, 9964, 9952, 9965, 9960]

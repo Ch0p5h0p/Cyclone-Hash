@@ -57,9 +57,9 @@ def mix(state, chunk, tweak):
 def chunk(byteList, msg_length, chunkByteSize=16):
 	# pad message
 	data=byteList
-	if len(data)%16!=0:
+	if len(data)%chunkByteSize!=0:
 		data.append(128)
-	while len(data)%16!=0:
+	while len(data)%chunkByteSize!=0:
 		data.append(0)
 	#print(f"Padded message to {len(data)} ({data})")
 	# chunk message
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 	except:
 		tweak=None
 	
-	out=hash(msg, tweak=tweak)
+	out=hash(msg, chunkLength=32, tweak=tweak)
 	print(f"Hash: {str2hex(out[0])}\nTweak: {out[1]}")
 	
 '''

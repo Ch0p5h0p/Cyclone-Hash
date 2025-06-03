@@ -7,7 +7,8 @@ from cyclone import hash, str2hex
 import timeit
 used_inputs=[]
 seen_hashes=[]
-tweak="3re6Gbl3QQR4obuf"
+tweak="iBLXtUfAjUWUN9Y2lXZKTt7VskJYqJkv" #"3re6Gbl3QQR4obuf"
+hash_len=len(tweak)
 
 collisions=[]
 tests=10000 #2**64 is the optimal amount, but I'm running on a 4GB RAM laptop so...
@@ -18,7 +19,7 @@ for _ in range(tests):
 		rand_input=''.join(random.choices(string.ascii_letters + string.digits, k=8))
 	used_inputs.append(rand_input)
 	
-	hash_val=str2hex(hash(rand_input,tweak=tweak)[0])
+	hash_val=str2hex(hash(rand_input,hash_len,tweak=tweak)[0])
 	print(f"Operating on {rand_input}\t{hash_val}\t{round(100*(_/tests),10)}% done")
 	
 	# Check if we've seen this hash before (collision)

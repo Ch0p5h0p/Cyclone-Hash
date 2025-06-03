@@ -2,7 +2,7 @@
 from bitstring import BitArray
 from cyclone import hash, str2hex
 
-tweak="3re6Gbl3QQR4obuf"
+tweak="0yB0C2MXx7G1qMFEv3ShGSmFKBUV5bx1" #"e5FvpsZoTddUTFwN"
 
 # Define your 4 hashes as hex strings
 test_hashes = []
@@ -14,9 +14,11 @@ for i in range(len(test_string)):
 	string[i]=chr(ord(string[i])+1)
 	string=''.join(string)
 	print(string)
-	test_hashes.append(str2hex(hash(string,tweak=tweak)[0]))
-
-
+	test_hashes.append(str2hex(hash(string,chunkLength=len(tweak), tweak=tweak)[0]))
+print("")
+for i in test_hashes:
+	print(i)
+print("")
 # Convert hex strings to BitArray (128 bits each)
 hashes_bits = [BitArray(hex=h) for h in test_hashes]
 

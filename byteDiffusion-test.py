@@ -2,13 +2,13 @@
 from cyclone import hash, str2hex
 
 hashes=[]
-tweak="3re6Gbl3QQR4obuf"
-amount=100000
+tweak="Z3JcFY5SVUXHR9OQNuTWeJylx2sT4T0W"
+amount=1000
 for i in range(1,amount):
 	index_str=[*str(i)]
 
 	index_str=''.join(index_str)
-	i_hash=str2hex(hash("msg"+index_str, tweak=tweak)[0])
+	i_hash=str2hex(hash("msg"+index_str, len(tweak), tweak=tweak)[0])
 	hashes.append(i_hash)
 	print(f"Operated on {i}\t{i_hash}\t(string: \"msg{index_str}\")")
 
@@ -18,7 +18,7 @@ for i in range(len(hashes)):
 	current=[hashes[i][(j*2):(j*2)+2] for j in range(int(len(hashes[i])/2))]
 	hashes_bytes.append(current)
 
-change=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+change=[0]*32
 
 for i in range(1,len(hashes_bytes)):
 	for j in range(len(hashes_bytes[i])):

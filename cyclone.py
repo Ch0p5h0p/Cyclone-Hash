@@ -95,7 +95,7 @@ def hash(message, chunkLength=32, tweak=None):
 	message=msg2ord(message)
 	#print(f"Converted message into {message}")
 	if tweak!=None and len(tweak)!=chunkLength:
-		raise Exception(f"Tweak length must be {chunkLength} bytes long (Tweak {tweak} is only {len(tweak)})")
+		raise Exception(f"Tweak length must be {chunkLength} bytes long (Tweak {tweak} is {len(tweak)})")
 	if tweak==None:
 		tweak=generateTweak(chunkLength)
 

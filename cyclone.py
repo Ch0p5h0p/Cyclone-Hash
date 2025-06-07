@@ -95,7 +95,7 @@ def hash(message, chunkLength=32, tweak=None):
 	message=msg2ord(message)
 	#print(f"Converted message into {message}")
 	if tweak!=None and len(tweak)!=chunkLength:
-		raise Exception(f"Tweak length must be {chunkLength} bytes long (Tweak {tweak} is {len(tweak)})")
+		raise Exception(f"Tweak length must be {chunkLength} bytes long (Tweak {tweak} is only {len(tweak)})")
 	if tweak==None:
 		tweak=generateTweak(chunkLength)
 
@@ -108,11 +108,16 @@ def hash(message, chunkLength=32, tweak=None):
 def str2hex(string):
 	return bytes([ord(i) for i in string]).hex()
 
+def toInt(hash_string):
+	data=list(map(lambda x: format(ord(x),'08b'), [*hash_string]))
+	return int(''.join(data),2)
+
 help='''Usage: ./hash.py <message> <tweak>
 
 Takes in a string message parameter and an optional string tweak parameter and produces a hash output. If a tweak isn't provided, one is generated.
 	
 Examples:\n\t./hash.py \"Hello World!\"\n\t./hash.py \"Foo\" \"3GZO9NUL67pABvIZ\"
+
 '''
 
 if __name__ == "__main__":
@@ -122,18 +127,20 @@ if __name__ == "__main__":
 		msg=sys.argv[1]
 	except:
 		try:
-			print("Using STDIN (^D ^D for EOF)")
 			msg=sys.stdin.read()
-			print("\n--------------------------------------")
 		except KeyboardInterrupt:
 			pass
 	try:
 		tweak=sys.argv[2]
 	except:
 		tweak=None
+
+	h=hash(msg, chunkLength=32, tweak=tweak)
+	print(f"cyclone:{str2hex(h[0])}:{(h[1])}")
 	
-	out=hash(msg, chunkLength=32, tweak=tweak)
-	print(f"Hash: {str2hex(out[0])}\nTweak: {out[1]}")
+	#Old formatting
+	#out=hash(msg, chunkLength=32, tweak=tweak)
+	#print(f"Hash: {str2hex(out[0])}\nTweak: {out[1]}")
 	
 '''
 How it works:

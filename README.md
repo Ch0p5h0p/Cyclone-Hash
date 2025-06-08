@@ -25,7 +25,7 @@ For reference: the optimal scores for each test are the following:
 
 Tests were performed with a constant tweak value, which indicates that the use of a tweak value increases the strength of the hash beyond the test results above.
 
-Note: the tests were applied to a 16 byte (128 bit) long hash to increase testing efficiency. The default value is 32 bytes. Hamming tests and diffusion tests similar results (Hamming: ~50.3%, Diffusion: ~99.5% average, or ~9950 average changes)
+Note: the tests were applied to a 16 byte (128 bit) long hash to increase testing efficiency. The default value is 32 bytes, or 256 bits. Hamming tests and diffusion tests for 32 bytes have similar results (Hamming: ~50.3%, Diffusion: ~99.5% average, or ~9950 average changes)
 
 ## Background
 Originally, I did this to give myself an introduction to hash algorithms and how they work internally, but through multiple hours of wondering what I could do better and the occasional eureka moment, my "introductory exercise" became Cyclone.

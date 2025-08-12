@@ -2401,3 +2401,6 @@ OUT ->      [186 69  80  12  9   132 105 165 58  121 40  20  16  162 46  62  177
 
 Hash: ba45500c098469a53a79281410a22e3eb1224290c94bb1d19871a18223968000
 Tweak: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Explanation of why this doesn't result in 32 0s:
+At the end of the chunking function, there is a line of code that adds a single chunk with the length repeated many times onto the series of chunks. It also needs to be considered that the input isn't all zeroes. In 40 rounds, those extra bytes on the end produce enough extra changes to the state to prevent it from being all zeroes. Also, the tweak is all A's, which are ASCII 65. To get a result of all zeroes, the input would have to be specifically engineered to produce that by brute forcing every possible input in order to get it. This would be spectacularly difficult, because in a 256 byte hash (which is the default), there are 2^256 possible outputs. The chances of getting the correct output by brute forcing are 1/2^256, aka 8.6361685551*(10^-78). The only other way is to attempt to do the math by hand. This would include choosing the EXACT number of bytes to create the EXACT amount of chunks to force a full zero output, then going through EVERY byte in the chunk to tune it to EXACTLY the correct value. To track this properly, you would have to go through every iteration of the algorithm.

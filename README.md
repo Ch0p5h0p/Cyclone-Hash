@@ -1,6 +1,10 @@
 # Cyclone Hash Algorithm
 A modular, state-interdependent hash algorithm with tweak-based diffusion.
+
+
 [!Note] This is a toy algorithm! It's not intended for real use!
+
+
 ## Usage:
 The python script can be run through the terminal with `python3 cyclone.py "message" "tweak"`. 
 If no tweak is provided, one will be generated.

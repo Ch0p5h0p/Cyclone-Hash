@@ -2,7 +2,7 @@
 A modular, state-interdependent hash algorithm with tweak-based diffusion.
 
 
-[!Note] This is a toy algorithm! It's not intended for real use!
+[!NOTE] This is a toy algorithm! It's not intended for real use!
 
 
 ## Usage:
